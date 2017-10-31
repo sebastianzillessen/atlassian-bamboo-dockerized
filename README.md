@@ -1,2 +1,7 @@
-# atlassian-bamboo-dockerized
-The Atlassian Bamboo CI/CD Server dockerized
+# Atlassian Bamboo Server (Docker)
+
+This project is currently under heavy construction ...
+
+## Build
+
+``docker build -t bamboo .``
