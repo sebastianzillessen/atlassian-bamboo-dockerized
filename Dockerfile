@@ -22,12 +22,12 @@ RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
 
 ENV LANG en_US.UTF-8
 
-#Download and Install of Bamboo 6.2.1
+#Download and Install of Bamboo 6.2.2
 RUN mkdir -p /opt/atlassian/bamboo /var/atlassian/application/bamboo && \
-    wget https://www.atlassian.com/software/bamboo/downloads/binary/atlassian-bamboo-6.2.1.tar.gz -q && \
-    tar -xvf atlassian-bamboo-6.2.1.tar.gz && \
-    rm -f atlassian-bamboo-6.2.1.tar.gz && \
-    mv atlassian-bamboo-6.2.1/* /opt/atlassian/bamboo
+    wget https://www.atlassian.com/software/bamboo/downloads/binary/atlassian-bamboo-6.2.2.tar.gz -q && \
+    tar -xvf atlassian-bamboo-6.2.2.tar.gz && \
+    rm -f atlassian-bamboo-6.2.2.tar.gz && \
+    mv atlassian-bamboo-6.2.2/* /opt/atlassian/bamboo
 
 #Download and Install Docker Community Edition
 RUN apt-get update && \
@@ -66,6 +66,8 @@ COPY db-connector/mysql-connector-java-5.1.42-bin.jar lib
 
 #Setting Bamboo home directory permamently
 RUN echo "bamboo.home=/var/atlassian/application/bamboo" >> atlassian-bamboo/WEB-INF/classes/bamboo-init.properties
+
+EXPOSE 8085
 
 #Start Bamboo in the foreground
 CMD bin/start-bamboo.sh -fg & bash
