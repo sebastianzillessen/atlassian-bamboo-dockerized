@@ -11,7 +11,7 @@ Bamboo is a continuous integration and continuous deployment server developed by
 ## Installed software
 
 - Java 8
-- Docker CE (17.09.0)
+- Docker CE (17.12.1)
 - Node.js (8.x)
 - Google Chrome (latest)
 
@@ -20,6 +20,12 @@ Bamboo is a continuous integration and continuous deployment server developed by
 Bamboo can be deployed as a Docker container but that doesn't mean that it is free to use. You still have to obtain a licence. A free 30-days trial period is available and all you need to do is to get an [evaluation licence](https://my.atlassian.com/license/evaluation) from Atlassian.
 
 For more information see [pricing](https://de.atlassian.com/software/bamboo/pricing) or visit the official [homepage](https://atlassian.com/software/bamboo).
+
+## Build
+
+````
+docker build .
+````
 
 ## Deployment
 
@@ -68,7 +74,7 @@ docker-compose up -d
 
 The target machine has to be Docker Swarm node. This means you have to [initialize](https://docs.docker.com/engine/reference/commandline/swarm_init/) a Docker Swarm if you haven't done it already.
 
-Example of a Docker stack file that can be used to deploy a Bamboo service to a Docker Swarm Node.
+Example of a Docker stack file that can be used to deploy Bamboo on Docker Swarm Node.
 
 ````
 version: '3'
@@ -92,14 +98,14 @@ networks:
 volumes:
    bamboo_home:
 `````
-Run the following command to deploy Bamboo from a compose file with the stack name of `ci-server-infrastructure`:
+Run the following command to deploy Bamboo in a stack named `ci-server-infrastructure`:
 ````
 docker stack deploy -c docker-compose.yml ci-server-infrastructure
 ````
 
 ## Connection to an external database
 
-All available JDBC drivers are bundled within this image so you don't have to download them separately. Please be aware that you need to use the Docker service name for the host part of the database URL when connecting to a local database server running inside another Docker container (when on the same network). Also be aware of limitations (and hacky workarounds) when you are trying to connect to database installed on your host machine without using Docker.
+All available JDBC drivers are bundled within this image so you don't have to download them separately.
 
 An example for a database URL using a PostgreSQL Docker container with a service-name of `postgres-db` would be:
 
