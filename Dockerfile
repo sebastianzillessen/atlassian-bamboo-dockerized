@@ -10,7 +10,7 @@ ENV BAMBOO_INSTALL                    /opt/atlassian/bamboo
 ENV BAMBOO_VERSION                    6.4.0
 ENV NODE_JS_VERSION                   8.x
 ENV MYSQL_CONNECTOR_JAVA_VERSION      5.1.46
-ENV DOCKER_VERSION                    17.12.1~ce-0~debian
+ENV DOCKER_VERSION                    18.03.0~ce-0~debian
 
 #Download and Install required packages to proceed
 RUN apt-get update && \
