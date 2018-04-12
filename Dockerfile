@@ -7,7 +7,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 #Default environment variables that can be used to modify the installation
 ENV BAMBOO_HOME                       /var/atlassian/bamboo
 ENV BAMBOO_INSTALL                    /opt/atlassian/bamboo
-ENV BAMBOO_VERSION                    6.4.0
+ENV BAMBOO_VERSION                    6.3.3
 ENV NODE_JS_VERSION                   8.x
 ENV MYSQL_CONNECTOR_JAVA_VERSION      5.1.46
 ENV DOCKER_VERSION                    18.03.0~ce-0~debian
@@ -17,8 +17,7 @@ RUN apt-get update && \
     apt-get -y install --no-install-recommends apt-utils && \
     apt-get -y install curl wget && \
     apt-get -y install vim nano && \
-    apt-get -y install openssl && \
-    apt-get -y install bzip2 xz-utils unzip locales
+    apt-get -y install openssl && \    apt-get -y install bzip2 xz-utils unzip locales
 
 #Download and Install Bamboo (including MySQL Java Connector)
 RUN mkdir -p ${BAMBOO_INSTALL} ${BAMBOO_HOME} && \
