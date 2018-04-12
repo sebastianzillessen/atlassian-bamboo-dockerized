@@ -17,7 +17,8 @@ RUN apt-get update && \
     apt-get -y install --no-install-recommends apt-utils && \
     apt-get -y install curl wget && \
     apt-get -y install vim nano && \
-    apt-get -y install openssl && \    apt-get -y install bzip2 xz-utils unzip locales
+    apt-get -y install openssl && \
+    apt-get -y install bzip2 xz-utils unzip locales
 
 #Download and Install Bamboo (including MySQL Java Connector)
 RUN mkdir -p ${BAMBOO_INSTALL} ${BAMBOO_HOME} && \
