@@ -10,7 +10,7 @@ ENV BAMBOO_INSTALL                    /opt/atlassian/bamboo
 ENV BAMBOO_VERSION                    6.4.0
 ENV NODE_JS_VERSION                   8.x
 ENV MYSQL_CONNECTOR_JAVA_VERSION      5.1.46
-ENV DOCKER_VERSION                    18.03.0~ce-0~debian
+ENV DOCKER_VERSION                    5:18.09.3~3-0~debian-stretch
 
 #Download and Install required packages to proceed
 RUN apt-get update && \
@@ -33,9 +33,9 @@ RUN mkdir -p ${BAMBOO_INSTALL} ${BAMBOO_HOME} && \
 RUN apt-get update && \
     apt-get -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common && \
     curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - && \
-    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") $(lsb_release -cs) stable" && \
+    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" && \
     apt-get update && \
-    apt-get -y install docker-ce=${DOCKER_VERSION}
+    apt-get install -y docker-ce=${DOCKER_VERSION} docker-ce-cli=${DOCKER_VERSION} containerd.io
 
 #Download and Install Nodes.js and webdriver-manager
 RUN curl -sL https://deb.nodesource.com/setup_${NODE_JS_VERSION} | bash - && \
