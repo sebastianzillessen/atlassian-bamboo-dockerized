@@ -7,7 +7,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 #Default environment variables that can be used to modify the installation
 ENV BAMBOO_HOME                       /var/atlassian/bamboo
 ENV BAMBOO_INSTALL                    /opt/atlassian/bamboo
-ENV BAMBOO_VERSION                    6.4.0
+ENV BAMBOO_VERSION                    6.9.0
 ENV NODE_JS_VERSION                   8.x
 ENV MYSQL_CONNECTOR_JAVA_VERSION      5.1.46
 ENV DOCKER_VERSION                    5:18.09.3~3-0~debian-stretch
